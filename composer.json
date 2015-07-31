@@ -1,9 +1,9 @@
 {
-  "name" : "xp-framework/mocks",
+  "name" : "xp-framework/webtest",
   "type" : "library",
   "homepage" : "http://xp-framework.net/",
   "license" : "BSD-3-Clause",
-  "description" : "Mocks for the XP Framework",
+  "description" : "Web tests for the XP Framework",
   "keywords": ["module", "xp"],
   "require" : {
     "xp-framework/core": "~6.0",
