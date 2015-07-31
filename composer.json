@@ -6,7 +6,7 @@
   "description" : "Web tests for the XP Framework",
   "keywords": ["module", "xp"],
   "require" : {
-    "xp-framework/core": "dev-rfc/293",
+    "xp-framework/core": "dev-master",
     "xp-framework/http": "~6.0",
     "xp-framework/xml": "~6.0",
     "xp-framework/unittest": "dev-master",
