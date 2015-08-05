@@ -105,7 +105,7 @@ abstract class WebTestCase extends TestCase {
    */
   protected function doRequest($method, $params) {
     $request= $this->conn->create(new \peer\http\HttpRequest());
-    $request->setMethod($method);
+    $request->setMethod(strtoupper($method));
     $request->setParameters($params);
 
     //set headers specified for this web test
