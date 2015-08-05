@@ -9,6 +9,7 @@
     "xp-framework/core": "dev-master",
     "xp-framework/http": "~6.0",
     "xp-framework/xml": "~6.0",
+    "xp-framework/scriptlet": "~6.0",
     "xp-framework/unittest": "dev-master",
     "php" : ">=5.4.0"
   },
