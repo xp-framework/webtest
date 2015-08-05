@@ -15,11 +15,10 @@ use peer\http\HttpConstants;
 class WebTestCaseTest extends TestCase {
   protected $fixture= null;
 
-  /**
-   * Sets up test case
-   */
+  /** @return void */
   public function setUp() {
     $this->fixture= newinstance('unittest.web.WebTestCase', [$this->name], [
+      'response' => null,
       'getConnection' => function($url= null) {
         return new HttpConnection('http://localhost/');
       },
