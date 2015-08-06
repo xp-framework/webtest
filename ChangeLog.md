@@ -3,6 +3,8 @@ Web tests change log
 
 ## ?.?.? / ????-??-??
 
+* Fixed issue #1: Problem with HTML w/o encoding - @thekid
+
 ## 6.4.2 / 2015-08-06
 
 * MFH: Fixed DOM not being loaded on HHVM due to `loadHTMLFile()` not
