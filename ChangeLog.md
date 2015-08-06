@@ -20,7 +20,6 @@ Web tests change log
 * MFH: Fixed `doRequest()` with lower- or mixed-case variants of the
   HTTP method, e.g. "get".
   (@thekid)
-* MFH: Fixed `unittest.XmlTestListener::uriFor()` raising exceptions - @thekid
 * MFH: Fixed WebTestCase test class using obsolete `assertClass()` - @thekid
 * MFH: Fixed `SelectField::setValue()` double-encoding UTF8 - @thekid
 * MFH: Fixed syntax errors in `unittest.web` package  - @thekid
