@@ -29,17 +29,20 @@ class EncodingTest extends WebTestCaseTest {
   /** @return var[][] */
   private function fixtures() {
     return [
-      [sprintf(self::$FIXTURE, '<meta charset="utf-8">')],
-      [sprintf(self::$FIXTURE, '<meta http-equiv="content-type" content="text/html; charset=utf-8">')],
-      [sprintf(utf8_decode(self::$FIXTURE), '<meta charset="iso-8859-1">')],
-      [sprintf(utf8_decode(self::$FIXTURE), '<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">')],
-      [sprintf(self::$FIXTURE, '<!-- No meta tag -->')]
+      [[], sprintf(self::$FIXTURE, '<meta charset="utf-8">')],
+      [[], sprintf(self::$FIXTURE, '<meta http-equiv="content-type" content="text/html; charset=utf-8">')],
+      [[], sprintf(utf8_decode(self::$FIXTURE), '<meta charset="iso-8859-1">')],
+      [[], sprintf(utf8_decode(self::$FIXTURE), '<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">')],
+      [[], sprintf(utf8_decode(self::$FIXTURE), '<!-- No meta tag -->')],
+      [['Content-Type: text/html; charset=utf-8'], sprintf(self::$FIXTURE, '<!-- No meta tag -->')],
+      [['Content-Type: text/html'], sprintf(utf8_decode(self::$FIXTURE), '<!-- No meta tag -->')],
+      [['Content-Type: text/html; charset=iso-8859-1'], sprintf(utf8_decode(self::$FIXTURE), '<!-- No meta tag -->')]
     ];
   }
 
   #[@test, @values('fixtures')]
-  public function title($fixture) {
-    $this->fixture->respondWith(HttpConstants::STATUS_OK, [], $fixture);
+  public function title($headers, $fixture) {
+    $this->fixture->respondWith(HttpConstants::STATUS_OK, $headers, $fixture);
     $this->fixture->beginAt('/');
     $this->fixture->assertTitleEquals('Über-Tests');
   }
