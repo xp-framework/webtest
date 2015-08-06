@@ -74,9 +74,9 @@ abstract class WebTestCase extends TestCase {
       // HHVM blocks all external resources by default, and the .ini setting
       // "hhvm.libxml.ext_entity_whitelist" cannot be set via ini_set().
       if (defined('HHVM_VERSION')) {
-        @$this->dom->loadHTML(Streams::readAll($this->response->getInputStream()));
+        @$this->dom->loadHTML(Streams::readAll(new InputStream($this->response)));
       } else {
-        @$this->dom->loadHTMLFile(Streams::readableUri($this->response->getInputStream()));
+        @$this->dom->loadHTMLFile(Streams::readableUri(new InputStream($this->response)));
       }
     }
     return $this->dom;
