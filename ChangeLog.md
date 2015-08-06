@@ -3,6 +3,8 @@ Web tests change log
 
 ## ?.?.? / ????-??-??
 
+## 6.4.3 / 2015-08-06
+
 * Fixed `assertTextPresent()` also taking head section into account, now
   only looks inside HTML body
   (@thekid)
