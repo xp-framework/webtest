@@ -78,6 +78,7 @@ abstract class WebTestCase extends TestCase {
       } else {
         @$this->dom->loadHTMLFile(Streams::readableUri($this->response->getInputStream()));
       }
+      var_dump($this->dom->actualEncoding);
     }
     return $this->dom;
   }

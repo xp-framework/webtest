@@ -33,7 +33,7 @@ class EncodingTest extends WebTestCaseTest {
       [sprintf(self::$FIXTURE, '<meta http-equiv="content-type" content="text/html; charset=utf-8">')],
       [sprintf(utf8_decode(self::$FIXTURE), '<meta charset="iso-8859-1">')],
       [sprintf(utf8_decode(self::$FIXTURE), '<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">')],
-      [sprintf(self::$FIXTURE, '')]
+      [sprintf(self::$FIXTURE, '<!-- No meta tag -->')]
     ];
   }
 
