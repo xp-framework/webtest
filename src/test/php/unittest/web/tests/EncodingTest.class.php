@@ -1,6 +1,7 @@
 <?php namespace unittest\web\tests;
 
 use peer\http\HttpConstants;
+use text\regex\Pattern;
 
 class EncodingTest extends WebTestCaseTest {
   private static $FIXTURE;
@@ -80,5 +81,12 @@ class EncodingTest extends WebTestCaseTest {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, $headers, $fixture);
     $this->fixture->beginAt('/');
     $this->fixture->assertTextPresent('über tests');
+  }
+
+  #[@test, @values('fixtures')]
+  public function pattern($headers, $fixture) {
+    $this->fixture->respondWith(HttpConstants::STATUS_OK, $headers, $fixture);
+    $this->fixture->beginAt('/');
+    $this->fixture->assertTextPatternPresent(new Pattern('[üu]ber tests'));
   }
 }
