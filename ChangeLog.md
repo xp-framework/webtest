@@ -3,6 +3,8 @@ Web tests change log
 
 ## ?.?.? / ????-??-??
 
+## 6.4.2 / 2015-08-06
+
 * MFH: Fixed DOM not being loaded on HHVM due to `loadHTMLFile()` not
   working with URLs (or userland streams!) except if an ini setting
   unchangeable at runtime contains the stream protocol. See also
