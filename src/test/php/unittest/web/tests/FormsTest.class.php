@@ -9,7 +9,7 @@ class FormsTest extends WebTestCaseTest {
    *
    * @param   string $action
    * @param   string $method
-   * @param   unittest.web.Form form
+   * @param   unittest.web.Form $form
    * @throws  unittest.AssertionFailedError
    */
   private function assertForm($action, $method, $form) {
