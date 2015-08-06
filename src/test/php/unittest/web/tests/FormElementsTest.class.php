@@ -13,7 +13,6 @@ class FormElementsTest extends WebTestCaseTest {
     return trim('
       <html>
         <head>
-          <meta charset="utf-8">
           <title>Enter your name</title>
         </head>
         <body>
