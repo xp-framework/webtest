@@ -46,4 +46,32 @@ class EncodingTest extends WebTestCaseTest {
     $this->fixture->beginAt('/');
     $this->fixture->assertTitleEquals('Über-Tests');
   }
+
+  #[@test, @values('fixtures')]
+  public function link($headers, $fixture) {
+    $this->fixture->respondWith(HttpConstants::STATUS_OK, $headers, $fixture);
+    $this->fixture->beginAt('/');
+    $this->fixture->assertLinkPresentWithText('Über-Example');
+  }
+
+  #[@test, @values('fixtures')]
+  public function input($headers, $fixture) {
+    $this->fixture->respondWith(HttpConstants::STATUS_OK, $headers, $fixture);
+    $this->fixture->beginAt('/');
+    $this->assertEquals('Übercoder', $this->fixture->getForm()->getField('uber')->getValue());
+  }
+
+  #[@test, @values('fixtures')]
+  public function option($headers, $fixture) {
+    $this->fixture->respondWith(HttpConstants::STATUS_OK, $headers, $fixture);
+    $this->fixture->beginAt('/');
+    $this->assertEquals('Überwoman', $this->fixture->getForm()->getField('gender')->getOptions()[0]->getText());
+  }
+
+  #[@test, @values('fixtures')]
+  public function textarea($headers, $fixture) {
+    $this->fixture->respondWith(HttpConstants::STATUS_OK, $headers, $fixture);
+    $this->fixture->beginAt('/');
+    $this->assertEquals('Übercoder', $this->fixture->getForm()->getField('umlauts')->getValue());
+  }
 }
