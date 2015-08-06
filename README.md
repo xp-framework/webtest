@@ -57,17 +57,17 @@ Assertion methods
 On top of the assertion methods provided by the unittest library, the following response-related assertions are available:
 
 ```php
-public void assertStatus(int $status, string $message= 'not_equals')
-public void assertUrlEquals(peer.URL $url, string $message= 'not_equals')
-public void assertContentType(string $ctype, string $message= 'not_equals')
-public void assertHeader(string $header, string $value, string $message= 'not_equals')
-public void assertElementPresent(string $id, string $message= 'not_present')
-public void assertTextPresent(string $text, string $message= 'not_present')
-public void assertImagePresent(string $src, string $message= 'not_present')
-public void assertLinkPresent(string $url, string $message= 'not_present')
-public void assertLinkPresentWithText(string $text, string $message= 'not_present')
-public void assertFormPresent(string $name= null, string $message= 'not_present')
-public void assertTitleEquals($title, string $message= 'not_equals')
+public void assertStatus(int $status)
+public void assertUrlEquals(peer.URL $url)
+public void assertContentType(string $ctype)
+public void assertHeader(string $header, string $value)
+public void assertElementPresent(string $id)
+public void assertTextPresent(string $text)
+public void assertImagePresent(string $src)
+public void assertLinkPresent(string $url)
+public void assertLinkPresentWithText(string $text)
+public void assertFormPresent(string $name= null)
+public void assertTitleEquals($title)
 ```
 
 Navigation
