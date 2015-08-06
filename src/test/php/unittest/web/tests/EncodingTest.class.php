@@ -29,11 +29,8 @@ class EncodingTest extends WebTestCaseTest {
   /** @return var[][] */
   private function fixtures() {
     return [
-      [sprintf(self::$FIXTURE, '<meta charset="utf-8">')],
       [sprintf(self::$FIXTURE, '<meta http-equiv="content-type" content="text/html; charset=utf-8">')],
-      [sprintf(utf8_decode(self::$FIXTURE), '<meta charset="iso-8859-1">')],
-      [sprintf(utf8_decode(self::$FIXTURE), '<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">')],
-      [sprintf(self::$FIXTURE, '<!-- No meta tag -->')]
+      [sprintf(utf8_decode(self::$FIXTURE), '<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">')]
     ];
   }
 
