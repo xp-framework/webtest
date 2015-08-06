@@ -3,6 +3,9 @@ Web tests change log
 
 ## ?.?.? / ????-??-??
 
+* Fixed `assertTextPresent()` also taking head section into account, now
+  only looks inside HTML body
+  (@thekid)
 * Fixed issue #1: Problem with HTML w/o encoding - @thekid
 
 ## 6.4.2 / 2015-08-06

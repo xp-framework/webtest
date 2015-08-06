@@ -74,4 +74,11 @@ class EncodingTest extends WebTestCaseTest {
     $this->fixture->beginAt('/');
     $this->assertEquals('Übercoder', $this->fixture->getForm()->getField('umlauts')->getValue());
   }
+
+  #[@test, @values('fixtures')]
+  public function text($headers, $fixture) {
+    $this->fixture->respondWith(HttpConstants::STATUS_OK, $headers, $fixture);
+    $this->fixture->beginAt('/');
+    $this->fixture->assertTextPresent('über tests');
+  }
 }

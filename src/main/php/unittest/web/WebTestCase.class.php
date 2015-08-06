@@ -344,8 +344,8 @@ abstract class WebTestCase extends TestCase {
    * @throws  unittest.AssertionFailedError  
    */
   public function assertTextPresent($text, $message= 'not_present') {
-    $node= $this->getXPath()->query('//*[contains(text(), "'.$text.'")]')->item(0);
-    $this->assertNotEquals(null, $node->textContent, $message);
+    $body= $this->getDom()->getElementsByTagName('body')->item(0)->textContent;
+    $this->assertTrue(false !== strpos($this->getDom()->documentElement->textContent, $text), $message);
   }
 
   /**
@@ -356,8 +356,8 @@ abstract class WebTestCase extends TestCase {
    * @throws  unittest.AssertionFailedError  
    */
   public function assertTextNotPresent($text, $message= 'present') {
-    $node= $this->getXPath()->query('//*[contains(text(), "'.$text.'")]')->item(0);
-    $this->assertEquals(null, $node, $message);
+    $body= $this->getDom()->getElementsByTagName('body')->item(0)->textContent;
+    $this->assertTrue(false === strpos($this->getDom()->documentElement->textContent, $text), $message);
   }
 
   /**
