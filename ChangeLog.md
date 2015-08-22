@@ -3,6 +3,10 @@ Web tests change log
 
 ## ?.?.? / ????-??-??
 
+* Introduced new `@webtest` annotation replacing necessity to overwrite
+  the `getConnection()` method. See xp-framework/webtest#3
+  (@thekid)
+
 ## 6.4.3 / 2015-08-06
 
 * Fixed `assertTextPresent()` also taking head section into account, now

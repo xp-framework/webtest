@@ -20,17 +20,8 @@ use unittest\web\WebTestCase;
 use peer\http\HttpConstants;
 use peer\http\HttpConnection;
 
+#[@webtest(url= 'https://github.com/')]
 class GitHubTestCase extends WebTestCase {
-
-  /**
-   * Get connection
-   *
-   * @param   string url
-   * @return  peer.http.HttpConnection
-   */
-  protected function getConnection($url= null) {
-    return new HttpConnection($url ?: 'https://github.com/');
-  }
 
   #[@test]
   public function home() {
@@ -51,6 +42,8 @@ $ unittest GitHubTestCase
 Memory used: 1861.12 kB (2474.66 kB peak)
 Time taken: 1.225 seconds
 ```
+
+To overwrite the default URL specified in the annotation, supply it as command line argument, e.g. `unittest GitHubTestCase -a https://github.staging.lan/`.
 
 Assertion methods
 -----------------
@@ -88,17 +81,8 @@ use unittest\web\WebTestCase;
 use peer\http\HttpConstants;
 use peer\http\HttpConnection;
 
+#[@webtest(url= 'https://github.com/')]
 class GitHubTestCase extends WebTestCase {
-
-  /**
-   * Get connection
-   *
-   * @param   string url
-   * @return  peer.http.HttpConnection
-   */
-  protected function getConnection($url= null) {
-    return new HttpConnection($url ?: 'https://github.com/');
-  }
 
   #[@test]
   public function search_for() {

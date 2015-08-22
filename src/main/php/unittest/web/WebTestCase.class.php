@@ -48,7 +48,12 @@ abstract class WebTestCase extends TestCase {
    */
   public function __construct($name, $url= null) {
     parent::__construct($name);
-    $this->conn= $this->getConnection($url);
+    $class= $this->getClass();
+    if ($class->hasAnnotation('webtest', 'url')) {
+      $this->conn= $this->getConnection($class->getAnnotation('webtest', 'url'));
+    } else {
+      $this->conn= $this->getConnection($url);
+    }
   }
   
   /**
