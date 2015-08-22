@@ -6,11 +6,11 @@
   "description" : "Web tests for the XP Framework",
   "keywords": ["module", "xp"],
   "require" : {
-    "xp-framework/core": "~6.0",
+    "xp-framework/core": "^6.4.2",
     "xp-framework/http": "~6.0",
     "xp-framework/xml": "~6.0",
     "xp-framework/scriptlet": "~6.0",
-    "xp-framework/unittest": "dev-master",
+    "xp-framework/unittest": "^6.4.2",
     "php" : ">=5.4.0"
   },
   "autoload" : {
