@@ -3,6 +3,8 @@ Web tests change log
 
 ## ?.?.? / ????-??-??
 
+## 6.4.4 / 2015-08-22
+
 * Introduced new `@webtest` annotation replacing necessity to overwrite
   the `getConnection()` method. See xp-framework/webtest#3
   (@thekid)
