@@ -3,6 +3,12 @@ Web tests change log
 
 ## ?.?.? / ????-??-??
 
+## 6.5.0 / 2015-12-13
+
+* **Heads up**: Changed minimum XP version to run webtests to XP
+  6.5.0, and with it the minimum PHP version to PHP 5.5
+  (@thekid)
+
 ## 6.4.4 / 2015-08-22
 
 * Introduced new `@webtest` annotation replacing necessity to overwrite
