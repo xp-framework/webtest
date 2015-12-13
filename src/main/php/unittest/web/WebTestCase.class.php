@@ -254,7 +254,7 @@ abstract class WebTestCase extends TestCase {
    * @param   var actual
    * @param   var expect
    */
-  public function fail($reason, $actual, $expect) {
+  public function fail($reason, $actual= null, $expect= null) {
     parent::fail('@'.$this->conn->getUrl()->getURL().': '.$reason, $actual, $expect);
   }
 
