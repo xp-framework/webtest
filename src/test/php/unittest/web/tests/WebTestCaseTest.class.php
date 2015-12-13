@@ -1,6 +1,5 @@
 <?php namespace unittest\web\tests;
 
-use unittest\web\WebTestCase;
 use io\streams\MemoryInputStream;
 use peer\http\HttpConnection;
 use peer\http\HttpResponse;

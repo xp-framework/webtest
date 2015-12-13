@@ -1,5 +1,9 @@
 <?php namespace unittest\web\tests;
 
+use lang\IllegalArgumentException;
+use unittest\web\InputField;
+use unittest\web\SelectField;
+use unittest\web\TextAreaField;
 use peer\http\HttpConstants;
 
 class FormElementsTest extends WebTestCaseTest {
@@ -45,7 +49,7 @@ class FormElementsTest extends WebTestCaseTest {
     ');
   }
 
-  #[@test, @expect('lang.IllegalArgumentException')]
+  #[@test, @expect(IllegalArgumentException::class)]
   public function nonExistantField() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], $this->formFixture());
     $this->fixture->beginAt('/');
@@ -59,7 +63,7 @@ class FormElementsTest extends WebTestCaseTest {
     $this->fixture->beginAt('/');
 
     with ($f= $this->fixture->getForm()->getField('first')); {
-      $this->assertInstanceOf('unittest.web.InputField', $f);
+      $this->assertInstanceOf(InputField::class, $f);
       $this->assertEquals('first', $f->getName());
       $this->assertEquals(null, $f->getValue());
     }
@@ -71,7 +75,7 @@ class FormElementsTest extends WebTestCaseTest {
     $this->fixture->beginAt('/');
 
     with ($f= $this->fixture->getForm()->getField('initial')); {
-      $this->assertInstanceOf('unittest.web.InputField', $f);
+      $this->assertInstanceOf(InputField::class, $f);
       $this->assertEquals('initial', $f->getName());
       $this->assertEquals('', $f->getValue());
     }
@@ -83,7 +87,7 @@ class FormElementsTest extends WebTestCaseTest {
     $this->fixture->beginAt('/');
 
     with ($f= $this->fixture->getForm()->getField('last')); {
-      $this->assertInstanceOf('unittest.web.InputField', $f);
+      $this->assertInstanceOf(InputField::class, $f);
       $this->assertEquals('last', $f->getName());
       $this->assertEquals('Tester', $f->getValue());
     }
@@ -95,7 +99,7 @@ class FormElementsTest extends WebTestCaseTest {
     $this->fixture->beginAt('/');
 
     with ($f= $this->fixture->getForm()->getField('uber')); {
-      $this->assertInstanceOf('unittest.web.InputField', $f);
+      $this->assertInstanceOf(InputField::class, $f);
       $this->assertEquals('uber', $f->getName());
       $this->assertEquals('Ubercoder', $f->getValue());
     }
@@ -107,7 +111,7 @@ class FormElementsTest extends WebTestCaseTest {
     $this->fixture->beginAt('/');
 
     with ($f= $this->fixture->getForm()->getField('gender')); {
-      $this->assertInstanceOf('unittest.web.SelectField', $f);
+      $this->assertInstanceOf(SelectField::class, $f);
       $this->assertEquals('gender', $f->getName());
       $this->assertEquals('-', $f->getValue());
     }
@@ -119,7 +123,7 @@ class FormElementsTest extends WebTestCaseTest {
     $this->fixture->beginAt('/');
 
     with ($f= $this->fixture->getForm()->getField('payment')); {
-      $this->assertInstanceOf('unittest.web.SelectField', $f);
+      $this->assertInstanceOf(SelectField::class, $f);
       $this->assertEquals('payment', $f->getName());
       $this->assertEquals('C', $f->getValue());
     }
@@ -179,7 +183,7 @@ class FormElementsTest extends WebTestCaseTest {
     $this->fixture->beginAt('/');
 
     with ($f= $this->fixture->getForm()->getField('comments')); {
-      $this->assertInstanceOf('unittest.web.TextAreaField', $f);
+      $this->assertInstanceOf(TextAreaField::class, $f);
       $this->assertEquals('comments', $f->getName());
       $this->assertEquals('(Comments)', $f->getValue());
     }

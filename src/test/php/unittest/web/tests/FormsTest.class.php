@@ -1,5 +1,6 @@
 <?php namespace unittest\web\tests;
 
+use unittest\web\Form;
 use peer\http\HttpConstants;
 
 class FormsTest extends WebTestCaseTest {
@@ -13,7 +14,7 @@ class FormsTest extends WebTestCaseTest {
    * @throws  unittest.AssertionFailedError
    */
   private function assertForm($action, $method, $form) {
-    $this->assertInstanceOf('unittest.web.Form', $form);
+    $this->assertInstanceOf(Form::class, $form);
     $this->assertEquals($action, $form->getAction());
     $this->assertEquals($method, $form->getMethod());
   }
