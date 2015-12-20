@@ -3,6 +3,8 @@ Web tests change log
 
 ## ?.?.? / ????-??-??
 
+## 6.5.1 / 2015-12-20
+
 * Added dependency on logging, patterns and networking libraries which
   have since been extracted from XP core.
   (@thekid)
