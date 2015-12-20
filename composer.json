@@ -10,6 +10,9 @@
     "xp-framework/http": "^6.0",
     "xp-framework/xml": "^6.0",
     "xp-framework/scriptlet": "^6.0",
+    "xp-framework/logging": "^6.5",
+    "xp-framework/patterns": "^6.6",
+    "xp-framework/networking": "^6.6",
     "xp-framework/unittest": "^6.7",
     "php" : ">=5.5.0"
   },

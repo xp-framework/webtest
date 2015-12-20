@@ -3,6 +3,10 @@ Web tests change log
 
 ## ?.?.? / ????-??-??
 
+* Added dependency on logging, patterns and networking libraries which
+  have since been extracted from XP core.
+  (@thekid)
+
 ## 6.5.0 / 2015-12-13
 
 * **Heads up**: Changed minimum XP version to run webtests to XP
