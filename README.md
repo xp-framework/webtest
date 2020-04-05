@@ -74,10 +74,8 @@ To work with forms, the `getForm()` method can be used:
 
 ```php
 use unittest\web\WebTestCase;
-use peer\http\HttpConstants;
-use peer\http\HttpConnection;
 
-#[@webtest(url= 'https://github.com/')]
+#[@webtest(['url' => 'https://github.com/'])]
 class GitHubTestCase extends WebTestCase {
 
   #[@test]
@@ -86,7 +84,7 @@ class GitHubTestCase extends WebTestCase {
     $form= $this->getForm();
     $form->getField('q')->setValue('XP Framework');
     $form->submit();
-    $this->assertStatus(HttpConstants::STATUS_OK);
+    $this->assertStatus(200);
     $this->assertTitleEquals('Search · XP Framework · GitHub');
   }
 }
