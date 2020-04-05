@@ -3,6 +3,12 @@ Web tests change log
 
 ## ?.?.? / ????-??-??
 
+## 6.6.0 / 2020-04-05
+
+* Added `WebTestCase::getCookies()` to access all cookies - @thekid
+* Made compatible with XP 10 - @thekid
+* Removed dependency on scriptlet library - @thekid
+
 ## 6.5.1 / 2015-12-20
 
 * Added dependency on logging, patterns and networking libraries which
