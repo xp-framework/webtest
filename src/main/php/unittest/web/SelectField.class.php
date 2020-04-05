@@ -8,22 +8,31 @@
  */
 class SelectField extends Field {
 
+  /** @return DOMElement[] */
+  private function options() {
+    $r= [];
+    foreach ($this->node->childNodes as $child) {
+      if ($child instanceof \DOMElement && 'option' === $child->tagName) $r[]= $child;
+    }
+    return $r;
+  }
+
   /**
    * Get this field's value
    *
    * @return  string
    */
   public function getValue() {
-    if (!$this->node->hasChildNodes()) return null;
+    $options= $this->options();
+    if (empty($options)) return null;
 
     // Find selected
-    foreach ($this->node->childNodes as $child) {
-      if (!($child instanceof \DOMElement) || 'option' !== $child->tagName || !$child->hasAttribute('selected')) continue;
-      return $child->getAttribute('value');
+    foreach ($options as $option) {
+      if ($option->hasAttribute('selected')) return $option->getAttribute('value');
     }
-    
+
     // Use first child's value
-    return $this->node->childNodes->item(0)->getAttribute('value');
+    return $options[0]->getAttribute('value');
   }
   
   /**
@@ -33,9 +42,8 @@ class SelectField extends Field {
    */
   public function getOptions() {
     $r= [];
-    foreach ($this->node->childNodes as $child) {
-      if (!($child instanceof \DOMElement) || 'option' !== $child->tagName) continue;
-      $r[]= new SelectOption($this->form, $child);
+    foreach ($this->options() as $option) {
+      $r[]= new SelectOption($this->form, $option);
     }
     return $r;
   }
@@ -47,9 +55,8 @@ class SelectField extends Field {
    */
   public function getSelectedOptions() {
     $r= [];
-    foreach ($this->node->childNodes as $child) {
-      if (!($child instanceof \DOMElement) || 'option' !== $child->tagName || !$child->hasAttribute('selected')) continue;
-      $r[]= new SelectOption($this->form, $child);
+    foreach ($this->options() as $option) {
+      $option->hasAttribute('selected') && $r[]= new SelectOption($this->form, $option);
     }
     return $r;
   }
