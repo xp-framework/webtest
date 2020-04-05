@@ -1,5 +1,7 @@
 <?php namespace unittest\web;
 
+use lang\FormatException;
+
 /**
  * Represents a cookie
  *
@@ -15,6 +17,13 @@ class Cookie {
     $this->attributes= $attributes;
   }
 
+  /**
+   * Parse a cookie from a header value
+   *
+   * @param  string $header
+   * @return self
+   * @throws lang.FormatException
+   */
   public static function parse($header) {
     sscanf($header, '%[^=]=%[^;]', $name, $value);
     if (false === ($offset= strpos($header, ';'))) {
