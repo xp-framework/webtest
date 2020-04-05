@@ -182,7 +182,7 @@ abstract class WebTestCase extends TestCase {
       ));
       $params ? $url->setParams($params) : '';
       $this->beginAt($url->getPath(), $url->getParams(), $method);
-    } else if ('' !== $target && '/' === $target{0}) {
+    } else if ('' !== $target && '/' === $target[0]) {
       $this->beginAt($target, $params, $method);
     } else {
       $base= $this->getBase();
