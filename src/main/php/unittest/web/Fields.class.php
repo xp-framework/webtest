@@ -1,11 +1,13 @@
 <?php namespace unittest\web;
 
+use lang\Enum;
+
 /**
  * HTML field types enumeration
  *
  * @see   xp://unittest.web.Form#getFields
  */
-abstract class Fields extends \lang\Enum {
+abstract class Fields extends Enum {
   public static $INPUT, $SELECT, $TEXTAREA;
 
   static function __static() {
