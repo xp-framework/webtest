@@ -1,13 +1,13 @@
 <?php namespace unittest\web;
 
-use unittest\TestCase;
+use io\streams\Streams;
+use lang\IllegalArgumentException;
 use peer\http\HttpConnection;
 use peer\http\HttpConstants;
-use text\regex\Pattern;
-use io\streams\Streams;
-use xml\XPath;
 use scriptlet\Cookie;
-use lang\IllegalArgumentException;
+use text\regex\Pattern;
+use unittest\TestCase;
+use xml\XPath;
 
 /**
  * TestCase for web sites
@@ -48,7 +48,7 @@ abstract class WebTestCase extends TestCase {
    */
   public function __construct($name, $url= null) {
     parent::__construct($name);
-    $class= $this->getClass();
+    $class= typeof($this);
     if ($class->hasAnnotation('webtest', 'url')) {
       $this->conn= $this->getConnection($class->getAnnotation('webtest', 'url'));
     } else {
