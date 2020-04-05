@@ -3,6 +3,12 @@ Web tests change log
 
 ## ?.?.? / ????-??-??
 
+## 7.0.0 / 2020-04-05
+
+* Implemented xp-framework/rfc#334: Drop PHP 5.6. The minimum required
+  PHP version is now 7.0.0!
+  (@thekid)
+
 ## 6.6.0 / 2020-04-05
 
 * Added `WebTestCase::getCookies()` to access all cookies - @thekid
