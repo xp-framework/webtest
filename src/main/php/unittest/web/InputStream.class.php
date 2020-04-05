@@ -1,6 +1,8 @@
 <?php namespace unittest\web;
 
-class InputStream extends \lang\Object implements \io\streams\InputStream {
+use io\streams\InputStream as Input;
+
+class InputStream implements Input {
   const META_TAG = '<meta http-equiv="content-type" content="text/html; charset=%s">';
 
   private $in, $head;

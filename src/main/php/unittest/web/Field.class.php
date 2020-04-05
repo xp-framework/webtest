@@ -5,7 +5,7 @@
  *
  * @see   xp://unittest.web.Form#getFields
  */
-abstract class Field extends \lang\Object {
+abstract class Field {
   protected
     $form   = null,
     $node   = null;

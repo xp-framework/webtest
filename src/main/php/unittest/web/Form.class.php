@@ -7,7 +7,7 @@ use peer\http\HttpConstants;
  *
  * @see   xp://unittest.web.WebTestCase#getForm
  */
-class Form extends \lang\Object {
+class Form {
   protected
     $test   = null,
     $node   = null,
