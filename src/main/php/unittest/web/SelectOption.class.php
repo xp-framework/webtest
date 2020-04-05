@@ -6,7 +6,7 @@
  * @see   http://www.w3schools.com/TAGS/tag_option.asp
  * @see   xp://unittest.web.SelectField#getOptions
  */
-class SelectOption extends \lang\Object {
+class SelectOption {
   private $form, $node;
   
   /**
