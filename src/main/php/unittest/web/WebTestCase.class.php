@@ -4,7 +4,6 @@ use io\streams\Streams;
 use lang\IllegalArgumentException;
 use peer\http\HttpConnection;
 use peer\http\HttpConstants;
-use scriptlet\Cookie;
 use text\regex\Pattern;
 use unittest\TestCase;
 use xml\XPath;
@@ -130,9 +129,9 @@ abstract class WebTestCase extends TestCase {
     if (isset($this->cookies[$host]) && 0 < sizeof($this->cookies[$host])) {
       $cookies= '';
       foreach ($this->cookies[$host] as $cookie) {
-        $cookies.= $cookie->getHeadervalue().'; ';
+        $cookies.= '; '.$cookie->name().'='.$cookie->value();
       }
-      $request->setHeader('Cookie', substr($cookies, 0, -2));
+      $request->setHeader('Cookie', substr($cookies, 2));
     }
     return $this->conn->send($request);
   }
@@ -155,7 +154,7 @@ abstract class WebTestCase extends TestCase {
       // would be creating new sessions with every request otherwise!
       foreach ((array)$this->response->header('Set-Cookie') as $str) {
         $cookie= Cookie::parse($str);
-        $this->cookies[$this->conn->getUrl()->getHost()][$cookie->getName()]= $cookie;
+        $this->cookies[$this->conn->getUrl()->getHost()][$cookie->name()]= $cookie;
       }
     } catch (\lang\XPException $e) {
       $this->response= null;
@@ -524,7 +523,7 @@ abstract class WebTestCase extends TestCase {
    * @param   string name
    * @throws  unittest.AssertionFailedError
    */
-  protected function assertCookiePresent($name) {
+  public function assertCookiePresent($name) {
     $domain= $this->conn->getUrl()->getHost();
     $this->assertTrue(isset($this->cookies[$domain][$name]), \xp::stringOf($this->cookies));
   }
@@ -535,11 +534,21 @@ abstract class WebTestCase extends TestCase {
    * @param   string name
    * @return  scriptlet.Cookie
    */
-  protected function getCookie($name) {
+  public function getCookie($name) {
     $domain= $this->conn->getUrl()->getHost();
     if (!isset($this->cookies[$domain][$name])) {
       $this->fail('Failed to locate a cookie named "'.$name.'"', null, '[cookie]');
     }
     return $this->cookies[$domain][$name];
+  }
+
+  /**
+   * Gets cookies
+   *
+   * @return  [:scriptlet.Cookie]
+   */
+  public function getCookies() {
+    $domain= $this->conn->getUrl()->getHost();
+    return isset($this->cookies[$domain]) ? $this->cookies[$domain] : [];
   }
 }
