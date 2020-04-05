@@ -2,15 +2,16 @@
 
 use io\streams\MemoryInputStream;
 use peer\http\HttpConnection;
-use peer\http\HttpResponse;
 use peer\http\HttpConstants;
+use peer\http\HttpResponse;
+use unittest\TestCase;
 
-abstract class WebTestCaseTest extends \unittest\TestCase {
+abstract class WebTestCaseTest extends TestCase {
   protected $fixture= null;
 
   /** @return void */
   public function setUp() {
-    $this->fixture= newinstance('#[@webtest(url= "http://localhost/")] unittest.web.WebTestCase', [$this->name], [
+    $this->fixture= newinstance('#[@webtest(["url" => "http://localhost/"])] unittest.web.WebTestCase', [$this->name], [
       'response' => null,
       'doRequest' => function($method, $params) {
         return $this->response;
