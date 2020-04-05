@@ -15,16 +15,14 @@ The following web test case consists of opening GitHub's homepage and asserting 
 
 ```php
 use unittest\web\WebTestCase;
-use peer\http\HttpConstants;
-use peer\http\HttpConnection;
 
-#[@webtest(url= 'https://github.com/')]
+#[@webtest(['url' => 'https://github.com/'])]
 class GitHubTestCase extends WebTestCase {
 
   #[@test]
   public function home() {
     $this->beginAt('/');
-    $this->assertStatus(HttpConstants::STATUS_OK);
+    $this->assertStatus(200);
     $this->assertTitleEquals('GitHub · Build software better, together.');
   }
 }
