@@ -14,12 +14,13 @@ Example
 The following web test case consists of opening GitHub's homepage and asserting the title to equal the company's name:
 
 ```php
-use unittest\web\WebTestCase;
+use unittest\web\{WebTestCase, Webtest};
+use unittest\Test;
 
-#[@webtest(['url' => 'https://github.com/'])]
+#[Webtest(url: 'https://github.com/')]
 class GitHubTestCase extends WebTestCase {
 
-  #[@test]
+  #[Test]
   public function home() {
     $this->beginAt('/');
     $this->assertStatus(200);
@@ -31,7 +32,7 @@ class GitHubTestCase extends WebTestCase {
 Running it works as with normal test cases:
 
 ```sh
-$ unittest GitHubTestCase
+$ xp test GitHubTestCase
 [.]
 
 ✓: 1/1 run (0 skipped), 1 succeeded, 0 failed
