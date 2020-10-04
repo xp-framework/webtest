@@ -1,7 +1,8 @@
 <?php namespace unittest\web\tests;
 
-use unittest\web\Form;
 use peer\http\HttpConstants;
+use unittest\Test;
+use unittest\web\Form;
 
 class FormsTest extends WebTestCaseTest {
 
@@ -19,7 +20,7 @@ class FormsTest extends WebTestCaseTest {
     $this->assertEquals($method, $form->getMethod());
   }
 
-  #[@test]
+  #[Test]
   public function unnamedForm() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], trim('
       <html>
@@ -36,7 +37,7 @@ class FormsTest extends WebTestCaseTest {
     $this->fixture->assertFormPresent();
   }
 
-  #[@test]
+  #[Test]
   public function noForm() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], trim('
       <html>
@@ -53,7 +54,7 @@ class FormsTest extends WebTestCaseTest {
     $this->fixture->assertFormNotPresent();
   }
 
-  #[@test]
+  #[Test]
   public function namedForms() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], trim('
       <html>
@@ -73,7 +74,7 @@ class FormsTest extends WebTestCaseTest {
     $this->fixture->assertFormNotPresent('green');
   }
   
-  #[@test]
+  #[Test]
   public function getForm() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], trim('
       <html>

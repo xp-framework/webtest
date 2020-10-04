@@ -1,10 +1,9 @@
 <?php namespace unittest\web\tests;
 
 use lang\IllegalArgumentException;
-use unittest\web\InputField;
-use unittest\web\SelectField;
-use unittest\web\TextAreaField;
 use peer\http\HttpConstants;
+use unittest\web\{InputField, SelectField, TextAreaField};
+use unittest\{Expect, Test};
 
 class FormElementsTest extends WebTestCaseTest {
 
@@ -49,7 +48,7 @@ class FormElementsTest extends WebTestCaseTest {
     ');
   }
 
-  #[@test, @expect(IllegalArgumentException::class)]
+  #[Test, Expect(IllegalArgumentException::class)]
   public function nonExistantField() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], $this->formFixture());
     $this->fixture->beginAt('/');
@@ -57,7 +56,7 @@ class FormElementsTest extends WebTestCaseTest {
     $this->fixture->getForm()->getField('does-not-exist');
   }
 
-  #[@test]
+  #[Test]
   public function textFieldWithoutValue() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], $this->formFixture());
     $this->fixture->beginAt('/');
@@ -69,7 +68,7 @@ class FormElementsTest extends WebTestCaseTest {
     }
   }
 
-  #[@test]
+  #[Test]
   public function textFieldWithEmptyValue() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], $this->formFixture());
     $this->fixture->beginAt('/');
@@ -81,7 +80,7 @@ class FormElementsTest extends WebTestCaseTest {
     }
   }
 
-  #[@test]
+  #[Test]
   public function textFieldWithValue() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], $this->formFixture());
     $this->fixture->beginAt('/');
@@ -93,7 +92,7 @@ class FormElementsTest extends WebTestCaseTest {
     }
   }
 
-  #[@test]
+  #[Test]
   public function textFieldWithUmlautInValue() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], $this->formFixture());
     $this->fixture->beginAt('/');
@@ -105,7 +104,7 @@ class FormElementsTest extends WebTestCaseTest {
     }
   }
 
-  #[@test]
+  #[Test]
   public function selectFieldWithoutSelected() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], $this->formFixture());
     $this->fixture->beginAt('/');
@@ -117,7 +116,7 @@ class FormElementsTest extends WebTestCaseTest {
     }
   }
 
-  #[@test]
+  #[Test]
   public function selectFieldWithSelected() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], $this->formFixture());
     $this->fixture->beginAt('/');
@@ -129,7 +128,7 @@ class FormElementsTest extends WebTestCaseTest {
     }
   }
 
-  #[@test]
+  #[Test]
   public function selectFieldOptions() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], $this->formFixture());
     $this->fixture->beginAt('/');
@@ -155,7 +154,7 @@ class FormElementsTest extends WebTestCaseTest {
     }
   }
 
-  #[@test]
+  #[Test]
   public function selectFieldNoSelectedOptions() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], $this->formFixture());
     $this->fixture->beginAt('/');
@@ -163,7 +162,7 @@ class FormElementsTest extends WebTestCaseTest {
     $this->assertEquals([], $this->fixture->getForm()->getField('gender')->getSelectedOptions());
   }
   
-  #[@test]
+  #[Test]
   public function selectFieldSelectedOptions() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], $this->formFixture());
     $this->fixture->beginAt('/');
@@ -177,7 +176,7 @@ class FormElementsTest extends WebTestCaseTest {
     }
   }
 
-  #[@test]
+  #[Test]
   public function textArea() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], $this->formFixture());
     $this->fixture->beginAt('/');

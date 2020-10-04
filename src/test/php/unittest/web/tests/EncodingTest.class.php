@@ -2,6 +2,7 @@
 
 use peer\http\HttpConstants;
 use text\regex\Pattern;
+use unittest\{Test, Values};
 
 class EncodingTest extends WebTestCaseTest {
   private static $FIXTURE;
@@ -41,49 +42,49 @@ class EncodingTest extends WebTestCaseTest {
     ];
   }
 
-  #[@test, @values('fixtures')]
+  #[Test, Values('fixtures')]
   public function title($headers, $fixture) {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, $headers, $fixture);
     $this->fixture->beginAt('/');
     $this->fixture->assertTitleEquals('Über-Tests');
   }
 
-  #[@test, @values('fixtures')]
+  #[Test, Values('fixtures')]
   public function link($headers, $fixture) {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, $headers, $fixture);
     $this->fixture->beginAt('/');
     $this->fixture->assertLinkPresentWithText('Über-Example');
   }
 
-  #[@test, @values('fixtures')]
+  #[Test, Values('fixtures')]
   public function input($headers, $fixture) {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, $headers, $fixture);
     $this->fixture->beginAt('/');
     $this->assertEquals('Übercoder', $this->fixture->getForm()->getField('uber')->getValue());
   }
 
-  #[@test, @values('fixtures')]
+  #[Test, Values('fixtures')]
   public function option($headers, $fixture) {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, $headers, $fixture);
     $this->fixture->beginAt('/');
     $this->assertEquals('Überwoman', $this->fixture->getForm()->getField('gender')->getOptions()[0]->getText());
   }
 
-  #[@test, @values('fixtures')]
+  #[Test, Values('fixtures')]
   public function textarea($headers, $fixture) {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, $headers, $fixture);
     $this->fixture->beginAt('/');
     $this->assertEquals('Übercoder', $this->fixture->getForm()->getField('umlauts')->getValue());
   }
 
-  #[@test, @values('fixtures')]
+  #[Test, Values('fixtures')]
   public function text($headers, $fixture) {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, $headers, $fixture);
     $this->fixture->beginAt('/');
     $this->fixture->assertTextPresent('über tests');
   }
 
-  #[@test, @values('fixtures')]
+  #[Test, Values('fixtures')]
   public function pattern($headers, $fixture) {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, $headers, $fixture);
     $this->fixture->beginAt('/');

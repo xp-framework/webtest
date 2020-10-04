@@ -1,10 +1,11 @@
 <?php namespace unittest\web\tests;
 
 use peer\http\HttpConstants;
+use unittest\Test;
 
 class LinksTest extends WebTestCaseTest {
 
-  #[@test]
+  #[Test]
   public function links() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], trim('
       <html>
@@ -26,7 +27,7 @@ class LinksTest extends WebTestCaseTest {
     $this->fixture->assertLinkNotPresent('index.html');
   }
 
-  #[@test]
+  #[Test]
   public function linksWithText() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], trim('
       <html>

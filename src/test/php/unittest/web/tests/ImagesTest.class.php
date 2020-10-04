@@ -1,10 +1,11 @@
 <?php namespace unittest\web\tests;
 
 use peer\http\HttpConstants;
+use unittest\Test;
 
 class ImagesTest extends WebTestCaseTest {
 
-  #[@test]
+  #[Test]
   public function images() {
     $this->fixture->respondWith(HttpConstants::STATUS_OK, [], trim('
       <html>
