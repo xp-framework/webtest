@@ -78,7 +78,7 @@ To work with forms, the `getForm()` method can be used:
 use unittest\web\{WebTestCase, Webtest};
 use unittest\Test;
 
-#[Webtest(['url' => 'https://github.com/'])]
+#[Webtest(url: 'https://github.com/')]
 class GitHubTestCase extends WebTestCase {
 
   #[Test]
