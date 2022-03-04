@@ -25,7 +25,7 @@ class GitHubTestCase extends WebTestCase {
   public function home() {
     $this->beginAt('/');
     $this->assertStatus(200);
-    $this->assertTitleEquals('GitHub · Build software better, together.');
+    $this->assertTitleEquals('GitHub: Where the world builds software · GitHub');
   }
 }
 ```

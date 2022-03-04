@@ -5,6 +5,9 @@ Web tests change log
 
 ## 7.1.0 / 2022-03-04
 
+* Fixed *urlencode(): Passing null to parameter [...] of type string is
+  deprecated* warnings in PHP 8
+  (@thekid)
 * Added compatibility with XP 11, newer dependency versions - @thekid
 
 ## 7.0.0 / 2020-04-05

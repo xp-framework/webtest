@@ -8,11 +8,9 @@ use peer\http\HttpConstants;
  * @see   xp://unittest.web.WebTestCase#getForm
  */
 class Form {
-  protected
-    $test   = null,
-    $node   = null,
-    $fields = null;
-  
+  protected $test, $node;
+  protected $fields= null;
+
   /**
    * Constructor
    *
@@ -106,7 +104,7 @@ class Form {
   public function submit() {
     $params= '';
     foreach ($this->getFields() as $field) {
-      $params.= '&'.$field->getName().'='.urlencode($field->getValue());
+      $params.= '&'.$field->getName().'='.urlencode($field->getValue() ?? '');
     }
     $this->test->navigateTo($this->getAction(), substr($params, 1), $this->getMethod());
   }
