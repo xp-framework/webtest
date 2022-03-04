@@ -3,6 +3,10 @@ Web tests change log
 
 ## ?.?.? / ????-??-??
 
+## 7.1.0 / 2022-03-04
+
+* Added compatibility with XP 11, newer dependency versions - @thekid
+
 ## 7.0.0 / 2020-04-05
 
 * Implemented xp-framework/rfc#334: Drop PHP 5.6. The minimum required
