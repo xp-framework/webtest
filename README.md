@@ -75,12 +75,13 @@ Forms
 To work with forms, the `getForm()` method can be used:
 
 ```php
-use unittest\web\WebTestCase;
+use unittest\web\{WebTestCase, Webtest};
+use unittest\Test;
 
-#[@webtest(['url' => 'https://github.com/'])]
+#[Webtest(['url' => 'https://github.com/'])]
 class GitHubTestCase extends WebTestCase {
 
-  #[@test]
+  #[Test]
   public function search_for() {
     $this->beginAt('/');
     $form= $this->getForm();
